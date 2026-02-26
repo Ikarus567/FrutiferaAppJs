@@ -25,7 +25,12 @@ function calcularIdadeEmMeses(dataPlantio) {
 
     let idadeEmMeses = anos * 12 + meses;     // Converte tudo para meses. Multiplica anos por 12 e soma os meses restantes.
 
-    return idadeEmMeses >= 0 ? idadeEmMeses : 0; // evita idade negativa
+    // O "if" testa uma condição (idadeEmMeses >= 0), ele verifica se a idade em meses é maior ou igual a zero.
+    if (idadeEmMeses >= 0) {
+        return idadeEmMeses;// Se a condição for verdadeira (true), então retorna o próprio valor calculado.
+    } else {  // O "else" executa quando a condição do if for falsa.
+        return 0; // e devolve 0 pra não ficar estranho
+    } 
 }
 
 // Declara a função formatarIdade, que recebe idade em meses.
@@ -43,4 +48,5 @@ function formatarData(data) {
     const partes = data.split("-");    // Utilizando o .slpit() divide a string usando o "-" como separador, isso vira um array: [ano, mes, dia].
     return `${partes[2]}/${partes[1]}/${partes[0]}`;    // Retorna uma template string reorganizando para dd/mm/aaaa. (partes[2] = dia, partes[1] = mês, partes[0] = ano)
 }
+
 
